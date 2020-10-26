@@ -26,6 +26,7 @@
   * [Submodules and subtrees](#submodules-and-subtrees)
   * [Hooks](#hooks)
   * [Smart commits](#smart-commits)
+  * [Multiple remotes](#multiple-remotes)
 * [List of useful commands](#list-of-useful-commands)
   
 ## Commit
@@ -247,6 +248,9 @@ git blame -C -M -w <file> // This command will ignore changes in whitespaces, an
 ```
 This command has many other options, for example, you can set a specific commit as a starting point.
 In addition to this, you can use `git log -p <file>` with different options to see the history of changes.
+
+### Multiple remotes
+Sometimes the project workflow assumes that project contributors fork it to their own GitHub or GitLab account, and then offer their pull request from their fork to the main repository. In this case, it is necessary that the local repository works with two different remotes, so not only you have 'origin', but also other remotes. It is easy to do, full instructions are [here](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes).
 
 ## Other features
 
