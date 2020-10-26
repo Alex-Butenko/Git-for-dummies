@@ -10,6 +10,8 @@
 * [Rewriting history](#rewriting-history)
   * [Change last commit](#change-last-commit)
   * [Change some commits on current branch](#change-some-commits-on-current-branch)
+* [Tools](#tools)
+  * [Git Bash](#git-bash)
 * [Flow](#flow)
   * [Master only](#master-only)
   * [Multibranch, merge only](#multibranch-merge-only)
@@ -193,6 +195,11 @@ The downside is that if you have merge conflicts, it might be easier to do witho
 
 ### Git flow
 This is a fairly complex system, although very effective in many cases. It is better to read about it [here](https://nvie.com/posts/a-successful-git-branching-model/). The main idea, in comparison with the previous two options, is that instead of master, the develop branch is used. And only tested commits from the develop branch are merged into the master branch. So the process is two-stage. While this process may not be suitable for everyone, many of the practices of this process, such as naming branches, are still worth learning.
+
+## Tools
+
+### Git Bash
+Unix has excellent command line tools. However, Windows still does not have a good standard console, especially with support for Unix shells and commands. [Git for Windows](https://gitforwindows.org/) provides an alternative console that has all of this. Chances are good that you already have it installed, but not everyone knows and uses it.
 
 ## Issues
 
