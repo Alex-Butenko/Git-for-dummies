@@ -20,6 +20,7 @@
   * [Cherry-pick](#cherry-pick)
 * [Tips and tricks](#tips-and-tricks)
   * [Worktrees](#worktrees)
+  * [Bisect](#bisect)
   * [Blame](#blame)
 * [Other features](#other-features)
   * [Submodules and subtrees](#submodules-and-subtrees)
@@ -233,6 +234,10 @@ git worktree remove ../Example_branch1
 // Sometimes Git will not obey, because of some uncommited changes. If you don't need these changes anymore, add option -f
 git worktree remove -f ../Example_branch1
 ```
+
+### Bisect
+Imagine that you have found a bug, and you know for sure that it was not in the previous version, and you have no idea what could be causing this bug.
+A good start would be to find the commit that started things wrong. To find such a commit, use `git bisect` command, with which you can perform a binary search. More information [here](https://git-scm.com/docs/git-bisect).
 
 ### Blame
 If you need to know who changed certain lines of a file and when, you can use GUI tools such as Git -> File history in Visual Studio or the Blame button on GitHub. But these tools only work in simple cases. If the file has been renamed, moved, copied, split or merged, these tools will only show the author and the time the file was created. Git has several commands that will untangle history in almost any case, regardless of moving code through files:
