@@ -1,4 +1,4 @@
-# Git tips and tricks
+# How I Learned to Stop Worrying and Love Git
 
   Git is the most popular version control system now and for the foreseeable future. At the same time, most often developers use only the possible minimum of possibilities, since the Git commands are quite complex, and the documentation is verbose and covers all the features and does not suggest an optimal way to solve typical problems, nor does it demonstrate the unobvious useful features of this system. Here I want to share a very small set of commands, which is enough for me to completely control how my Git repositories look, and also solve 99% of the problems that arise.
 
