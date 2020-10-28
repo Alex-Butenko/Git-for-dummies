@@ -7,6 +7,11 @@
   * [How ideal commit looks like?](#how-ideal-commit-looks-like)
   * [Why simplest approach is not optimal?](#why-simplest-approach-is-not-optimal)
   * [How to make a good commit?](#how-to-make-a-good-commit)
+* [Branches](#branches)
+  * [Branch](#branch)
+  * [Pull and Push](#pull-and-push)
+  * [Merge and Rebase](#merge-and-rebase)
+  * [Fast forward](#fast-forward
 * [Rewriting history](#rewriting-history)
   * [Change last commit](#change-last-commit)
   * [Change some commits on current branch](#change-some-commits-on-current-branch)
@@ -76,6 +81,69 @@ If you are a one-line commit message and does not need a detailed description.
 Perhaps after that there will be some other changes that need to be committed. To do this, you need to create a separate commit by repeating the process.
 
 It's perfectly okay if instead of just one commit, you end up with 3, 5 or more. You will spend a little more time doing this, but you will be absolutely sure what exactly you changed.
+
+## Branches
+Branch management is one of the most important parts of working effectively with Git.
+The main actions that can be performed on branches are create and delete, push to and pull from remote, move, merge and [edit](#rewriting-history).
+
+### Branch
+This command is most useful for creating and deleting branches.
+#### Create a branch
+```
+git branch <branch_name>                       # Create branch branch_name. Note that this branch will be created on the current commit.
+git branch <branch_name> <commmitish>          # Create branch_name from <commitish>
+```
+Usually, when you create a branch, you want to quickly switch to it. There is a shortcut for it.
+```
+git checkout -b <branch_name>      # This command is equal to git branch <branch_name>; git checkeout <branch_name>
+```
+One special case if you want to repurpose an existing branch
+```
+git branch -f <branch_name> <commitish>
+```
+This command is equal to
+```
+git branch -D <branch_name>
+git branch <branch_name> <commmitish> 
+```
+
+#### Remove a branch
+
+##### To remove a merged branch (means, it is merged into some other branch and your commits in this branch will not be lost)
+```
+git branch -d <branch_name>
+```
+You cannot remove your current branch, though. Also, if you are using [worktrees](#worktrees), it counts too.
+
+##### To remove unmerged branch (means that all commits of this branch are going to be discarded)
+```
+git branch -d -f <branch_name>
+or, shorter
+git branch -D <branch_name>
+```
+If this command results in data loss, don't be discouraged. [Reflog](#reflog) will help you restore everything as it was.
+
+##### Remove remote branch
+I recommend deleting branches automatically when pull requests are merged. Github, Gitlab and Bitbucket allow to set it in repository settings.
+If you still need to delete a remote branch, it is better to use GUI tools such as SourceTree, so as not to make a mistake.
+Sometimes a branch deleted on remote still appears as existing on local. The most efficient way to clear all such branches at once is to use `git fetch --prune`
+
+### Pull and Push
+
+### Merge and Rebase
+Merge and rebase are the most complex commonly used commands. 
+However, the degree of mastering and understanding of them affects how confidently you can manage your repository.
+To some extent, these commands are similar.
+ * They are used to combine two branches.
+ * Their end result is the same (although the commit history is completely different).
+ * They can lead to merge conflicts.
+ 
+But they also have a key difference.
+Merge adds changes from another branch to the end, so that all changes seem to happen in parallel, and then merged at the end.
+Rebase adds changes from another branch to the beginning, so that all changes seem to happen sequentially - first the other branch, then the current one.
+The very name of the command - rebase - seems to indicate that we are changing the base of the current branch, and moving it to another place.
+
+### Fast forward
 
 ## Rewriting history
 If you've never tried to rewrite the history of commits, or think it's too much trouble, this part for you. You need to know no more than two commands to be able to change, remove, rename, merge, or add commits on the current branch.
