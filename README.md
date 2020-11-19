@@ -11,7 +11,7 @@
   * [Branch](#branch)
   * [Pull and Push](#pull-and-push)
   * [Merge and Rebase](#merge-and-rebase)
-  * [Fast forward](#fast-forward
+  * [Fast forward](#fast-forward)
 * [Rewriting history](#rewriting-history)
   * [Change last commit](#change-last-commit)
   * [Change some commits on current branch](#change-some-commits-on-current-branch)
@@ -272,7 +272,7 @@ Unix has excellent command line tools. However, Windows still does not have a go
 ## Issues
 
 ### Reflog
-This command allows you to fix bugs such as accidentally deleting a branch, commit, stash, or just about any other change.
+This command allows you to fix problems such as accidentally deleting a branch, commit, stash, or just about any other change.
 
 It's pretty simple to use.
 git reflog
