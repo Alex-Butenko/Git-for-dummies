@@ -267,6 +267,9 @@ This command may look too difficult at first, but after a little practice, you m
 There are several approaches to branching in Git. Some are chosen for workflows, while others come from ignorance of better options. Here I will try to consider the most popular options, their scope, advantages and disadvantages.
 
 ### Master only
+
+![git-master-only](git-master-only.jpg)
+
 This option is perhaps the most popular for repos with very small teams. 
 
 The obvious advantage of this process is its simplicity. Everything can be done with the most primitive tools, right from the IDE, without even knowing a single Git command. And if only one person needs to work with the repository, then the history of changes does not branch at all.
@@ -278,6 +281,9 @@ Poor scalability manifests itself in an increasing number of parallel branches a
 And the worst practices are, for example, the inability to effectively rewrite the history of local changes due to the constant inclusion of merge commits in the history. It is also impossible to determine which topic the commits are related to. This creates a chaotic Git culture.
 
 ### Multibranch, merge only
+
+![git-branches-no-rebase](git-branches-no-rebase.jpg)
+
 This option means that at the beginning of work on each feature, a new branch is created from the latest version of master. At the end of the work, the branch is merged into master.
 
 This option is often used when a team using the previous option is implementing a code review. This leads to the need to use pull requests, and as a result, named branches.
@@ -287,6 +293,9 @@ The advantage is obviously that it allows pull requests. It also allows you to u
 The disadvantages are poor scaling too. Each developer can have multiple branches, and if there are many developers, this leads to an unreadable history of changes in Git.
 
 ### Multibranch, rebase and merge
+
+![git-branches-with-rebase](git-branches-with-rebase.jpg)
+
 This option means that at the beginning of work on each feature, a new branch is created from the latest version of master. At the end of the work, the branch is rebased to the latest version of master (the latest at this point) and then the branch is merged into master.
 That is, it looks like that the branch was created, and was immediately merged into master. At the same time, the history of changes looks almost linear, with the exception for merge commits, which show the checkpoints at which the new feature entered master.
 
@@ -297,6 +306,9 @@ The advantage of this approach is that you have a very clear history of changes 
 The downside is that if you have merge conflicts, it might be easier to do without it and just merge.
 
 ### Git flow
+
+![git-flow](git-flow.jpg)
+
 This is a fairly complex system, although very effective in many cases. It is better to read about it [here](https://nvie.com/posts/a-successful-git-branching-model/). The main idea, in comparison with the previous two options, is that instead of master, the develop branch is used. And only tested commits from the develop branch are merged into the master branch. So the process is two-stage. While this process may not be suitable for everyone, many of the practices of this process, such as naming branches, are still worth learning.
 
 ## Tools
