@@ -17,6 +17,7 @@
   * [Change some commits on current branch](#change-some-commits-on-current-branch)
 * [Tools](#tools)
   * [Git Bash](#git-bash)
+  * [SourceTree](#sourcetree)
 * [Flow](#flow)
   * [Master only](#master-only)
   * [Multibranch, merge only](#multibranch-merge-only)
@@ -316,6 +317,18 @@ This is a fairly complex system, although very effective in many cases. It is be
 
 ### Git Bash
 Unix has excellent command line tools. However, Windows still does not have a good standard console, especially with support for Unix shells and commands. [Git for Windows](https://gitforwindows.org/) provides an alternative console that has all of this. Chances are good that you already have it installed, but not everyone knows and uses it.
+
+### SourceTree
+It is a free tool for Windows and Mac. It has many useful features, which are easier to find out about on the official [website](https://www.sourcetreeapp.com/). This is just one of many tools, other GUI tools usually have similar functionality.
+
+While the command line may seem more convenient for most Git actions, some things are much more convenient to do with the GUI tools.
+
+Here is the list of SourceTree features you can find useful:
+  * Select files, parts of files, even individual lines to commit.
+  * See changes with/without whitespaces included
+  * Remove branches more safely
+  * Easy access to stashes
+  * Very intuitive representation of commit histoory
 
 ## Issues
 
