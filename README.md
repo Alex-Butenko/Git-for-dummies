@@ -118,7 +118,9 @@ You cannot remove your current branch, though. Also, if you are using [worktrees
 ##### To remove unmerged branch (means that all commits of this branch are going to be discarded)
 ```
 git branch -d -f <branch_name>
+```
 or, shorter
+```
 git branch -D <branch_name>
 ```
 If this command results in data loss, don't be discouraged. [Reflog](#reflog) will help you restore everything as it was.
