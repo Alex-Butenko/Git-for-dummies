@@ -131,6 +131,39 @@ If you still need to delete a remote branch, it is better to use GUI tools such 
 Sometimes a branch deleted on remote still appears as existing on local. The most efficient way to clear all such branches at once is to use `git fetch --prune`
 
 ### Pull and Push
+These are pretty intuitive concepts, `pull` is used to download remote branches to a local repository. `Push` is the other way around, to upload local changes to a remote repository. Several options are possible for both.
+
+#### Pull a new remote branch you don't have locally yet and check it out
+Easiest way is to use this command
+```
+git checkout -t <remote>/<branch_name>
+```
+
+#### Pull last commits from a remote branch you have locally
+```
+git fetch <remote> <branch_name>:<branch_name>
+```
+or, to pull current branch
+```
+git pull
+```
+
+#### Pull remote branch, rebasing local commits
+It can be default behaviour, set up in settings, or can be achieved by a command. This will rebase your local commits on the top of remote commits of the same branch.
+```
+git pull --rebase
+```
+
+#### Push a local branch to remote
+```
+git push -u <remote> <branch_name>
+```
+
+#### Push a local branch to remote, overriding remote changes
+It is normal to use this command with your own topic branches, but not with common branches like `master` or `develop`.
+```
+git push -uf <remote> <branch_name>
+```
 
 ### Merge and Rebase
 Merge and rebase are the most complex commonly used commands. 
