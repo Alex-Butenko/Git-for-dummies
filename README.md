@@ -26,6 +26,7 @@
   * [Reflog](#reflog)
   * [Cherry-pick](#cherry-pick)
 * [Tips and tricks](#tips-and-tricks)
+  * [Stash](#stash)
   * [Worktrees](#worktrees)
   * [Bisect](#bisect)
   * [Blame](#blame)
@@ -336,6 +337,26 @@ git cherry-pick <commit_checksum>
 Usually it is useful for picking some changes from failed branches.
 
 ## Tips and tricks
+
+### Stash
+Quite often, it becomes necessary to temporarily hide uncommitted changes. This may be needed to pull a remote branch, or to rebase, or just to temporarily switch to another task.
+To do it, use
+```
+git add .         # Without this command, `git stash` will only stash edited files, not added
+git stash
+```
+To get it back, use
+```
+git stash apply
+```
+or
+```
+git stash pop
+```
+The last one is for the case if you also want to remove hidden copy
+
+Stash works as a LIFO structure, so you can stash as many times as you want, and `git stash pop`/`git stash apply` will take the last added stash that left there.
+It is also possible to create named stashes.
 
 ### Worktrees
 Often it is necessary to work simultaneously with several branches of the same project. A possible solution is to just copy the folder. However, Git provides a better solution - the git worktree commands. These commands are used to manage different branches of the same repository in different folders, while remaining part of the same repository, with a single copy of the .git directory.
