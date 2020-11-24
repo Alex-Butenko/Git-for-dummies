@@ -180,6 +180,21 @@ Merge adds changes from another branch to the end, so that all changes seem to h
 Rebase adds changes from another branch to the beginning, so that all changes seem to happen sequentially - first the other branch, then the current one.
 The very name of the command - rebase - seems to indicate that we are changing the base of the current branch, and moving it to another place.
 
+#### Merge
+To merge another branch into current branch:
+```
+git merge <other_branch_name>
+```
+
+#### Rebase
+To rebase current branch to another branch:
+```
+git rebase <other_branch_name>
+```
+
+#### Merge confilicts
+Quite often these commands lead to a merge conflict where the same lines are changed in both branches, and Git is unable to figure out which version is correct. And, in the case of rebase, this can happen several times. There are lots of GUI tools that help to resolve it, best of them show changes from both branches and the final result as well.
+
 ### Fast forward
 
 ## Rewriting history
