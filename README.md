@@ -451,9 +451,69 @@ Hooks let you run scripts on specific events in Git. For example, you can run a 
 Smart commits allow you to manage issues in the issue tracker using a commit message. [An example](https://support.atlassian.com/bitbucket-cloud/docs/use-smart-commits/) how it may work.
 
 ## List of useful commands
+
+### Commit
 ```
-git commit // Commit staged changes, input commit message interactively
-git commit -m "<commit message>" // Commit staged changes, message is an argument
-git commit --amend // Add staged changes to the last commit and edit its message
-git rebase -i HEAD~<number of commits you are going to change> // Rewrite last n commits - edit messages, fixup, squash, reorder, delete
+git add .             # Stage all changes for commit
+git commit            # Commit staged changes, input commit message interactively
+git commit -m "<commit message>" # Commit staged changes, message is the argument
+git commit --amend    # Add staged changes to the last commit and edit its message
+```
+
+### Branches
+```
+git checkout -b <branch_name>       # Create branch <branch_name> and check it out
+git branch -d <branch_name>         # Delete branch <branch_name>
+
+git checkout -t <remote>/<branch_name>            # Pull a new remote branch you don't have locally yet and check it out
+git fetch <remote> <branch_name>:<branch_name>    # Pull last commits from a remote branch you have locally
+git pull                                          # Pull current branch
+git pull --rebase                                 # Pull remote branch, rebasing local commits
+
+git push -u <remote> <branch_name>      # Push a local branch to remote
+git push -uf <remote> <branch_name>     # Push a local branch to remote, overriding remote changes
+
+git merge <other_branch_name>           # To merge another branch into current branch:
+git rebase <other_branch_name>          # To rebase current branch to another branch:
+```
+
+### Rewriting history
+```
+git commit --amend                    # Add staged changes to the last commit and edit its message
+
+git rebase -i HEAD~<number of commits you are going to change>                    # Rewrite last n commits - edit messages, fixup, squash, reorder, delete
+
+git commit --fixup=<commit hash>      # Create a fixup commit
+```
+
+### Issues
+```
+git reflog      # See recent commands and affected commits
+
+git cherry-pick <commit_checksum>       # To take any commit from anywhere to current branch.
+```
+
+### Stash
+```
+git add .         # Without this command, `git stash` will only stash edited files, not added
+git stash         # Stash changes
+
+git stash apply   # Apply stash
+
+git stash pop     # Apply stash and remove it from the storage
+```
+
+### Worktree
+```
+# Add worktree
+git worktree add <path> [<commit-ish>]
+# Example
+git worktree add ../Example_branch1 branch1
+
+
+git worktree list       # Show list of worktrees
+
+git worktree remove <path>     # Remove a worktree
+
+git worktree remove -f <path>  # Discard changes and remove a worktree
 ```
