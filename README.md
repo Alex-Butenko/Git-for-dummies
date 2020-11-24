@@ -179,6 +179,7 @@ But they also have a key difference.
 Merge adds changes from another branch to the end, so that all changes seem to happen in parallel, and then merged at the end.
 Rebase adds changes from another branch to the beginning, so that all changes seem to happen sequentially - first the other branch, then the current one.
 The very name of the command - rebase - seems to indicate that we are changing the base of the current branch, and moving it to another place.
+There is a good [game](https://learngitbranching.js.org/) that helps to train merge and rebase skills.
 
 #### Merge
 To merge another branch into current branch:
