@@ -481,7 +481,7 @@ git rebase <other_branch_name>          # To rebase current branch to another br
 ```
 git commit --amend                    # Add staged changes to the last commit and edit its message
 
-git rebase -i HEAD~<number of commits you are going to change>                    # Rewrite last n commits - edit messages, fixup, squash, reorder, delete
+git rebase -i HEAD~<number of commits you are going to change>    # Rewrite last n commits - edit messages, fixup, squash, reorder, delete
 
 git commit --fixup=<commit hash>      # Create a fixup commit
 ```
