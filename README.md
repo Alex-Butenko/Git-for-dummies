@@ -196,6 +196,18 @@ git rebase <other_branch_name>
 Quite often these commands lead to a merge conflict where the same lines are changed in both branches, and Git is unable to figure out which version is correct. And, in the case of rebase, this can happen several times. There are lots of GUI tools that help to resolve it, best of them show changes from both branches and the final result as well.
 
 ### Fast forward
+Depending on settings, command `git merge` can try to fast-forward changes. This means that if merged branch is on the top of current, instead of merge commmit `git merge` produces linear history. If it is not intended result for you, you can use command
+```
+git merge --no-ff <other_branch_name> ## --no-ff means 'no fast-forward'
+```
+This command will force using merge commit. This can be important, for example, if you are using git flow and want to preserve history of merges.
+You can also edit settings to change default behaviour for this command.
+
+Depending on settings, `git pull` command may create a merge commit even if there is an opportunity for fast forward. To force fast-forward, you can use this commmand:
+```
+git pull --ff
+```
+You can also edit settings to change default behaviour for this command.
 
 ## Rewriting history
 If you've never tried to rewrite the history of commits, or think it's too much trouble, this part for you. You need to know no more than two commands to be able to change, remove, rename, merge, or add commits on the current branch.
